@@ -1,5 +1,5 @@
-// src/pages/Services.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import Layout from '../components/common/Layout';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import Avantage from '../components/services/Avantage';
@@ -12,9 +12,15 @@ const Services = () => {
       breadcrumbTitle="Nos Services"
       breadcrumbText="Services"
     >
-    <WhyChooseUs />
-    <Catalogue />
-    <Avantage />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <WhyChooseUs />
+        <Catalogue />
+        <Avantage />
+      </motion.div>
     </Layout>
   );
 };

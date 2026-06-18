@@ -9,3 +9,6 @@
 [X] implement the sections of each componant in propos
 [X] implement the sections of each componant in services
 [x] implement the sections of each componant in contact
+
+# Sprint 2:
+[]

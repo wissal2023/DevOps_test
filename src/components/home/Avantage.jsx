@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import projectImg1 from '../../assets/img/project-img1.png'; 
 import projectImg2 from '../../assets/img/project-img2.png';
 
@@ -19,33 +20,47 @@ const Avantage = () => {
   ];
 
   return (
-    <section className="py-20 bg-bg-light">
+    <section className="py-20 bg-bg-light overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header - Left Aligned */}
-        <div className="text-left mb-12 max-w-5xl mx-auto">
+        {/* Section Header */}
+        <motion.div 
+          className="text-left mb-12 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="inline-block bg-primary-dark text-white px-6 py-2 rounded-full text-sm font-medium mb-4">
             Nos Avantages
           </div>
-
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-primary-dark mb-4">
             Une Vision Tournée Vers La Performance
           </h2>
-
           <p className="text-gray-custom text-paragraph-24 leading-relaxed max-w-5xl">
             En choisissant Global Leaders Trade, vous bénéficiez d'un partenaire stratégique capable 
             d'optimiser chaque étape de votre chaîne d'approvisionnement.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Features Grid - Cards with Bottom-Center Overlay */}
+        {/* Features Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto pb-40">
-          {features.map((feature) => (
-            <div 
+          {features.map((feature, index) => (
+            <motion.div 
               key={feature.id}
               className="group relative rounded-[2.5rem] overflow-visible transition-all duration-500"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
             >
               {/* Image Container */}
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <motion.div 
+                className="relative rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                initial={{ scale: 1.03 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+              >
                 <img 
                   src={feature.image}
                   alt={feature.title} 
@@ -54,10 +69,16 @@ const Avantage = () => {
                 
                 {/* Dark Overlay on Image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              </div>
+              </motion.div>
               
               {/* Card Overlay */}
-              <div className="absolute bottom-[-120px] left-0 right-0 flex justify-center px-4">
+              <motion.div 
+                className="absolute bottom-[-120px] left-0 right-0 flex justify-center px-4"
+                initial={{ opacity: 0, y: 24, rotateX: 6 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
+                viewport={{ once: true }}
+              >
                 <div className="bg-primary-dark rounded-3xl p-8 w-[95%] max-w-md mx-auto shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-custom-red transition-colors duration-300">
                     {feature.title}
@@ -66,8 +87,8 @@ const Avantage = () => {
                     {feature.description}
                   </p>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

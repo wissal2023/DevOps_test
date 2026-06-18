@@ -1,5 +1,5 @@
-// src/components/common/Layout.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import Header from './Header';
 import Breadcrumb from '../propos/Breadcrumb';
 import Mailing from '../propos/Mailing';
@@ -12,7 +12,12 @@ const Layout = ({
   breadcrumbText = "À Propos de nous"
 }) => {
   return (
-    <div className="min-h-screen bg-white">
+    <motion.div 
+      className="min-h-screen bg-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Header />
       {showBreadcrumb && <Breadcrumb title={breadcrumbTitle} breadcrumb={breadcrumbText} />}
       <main>
@@ -20,7 +25,7 @@ const Layout = ({
       </main>
       <Mailing />
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

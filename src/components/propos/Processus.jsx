@@ -1,12 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faUserPlus, 
-  faSearch, 
-  faFileInvoice, 
-  faTruck,
-  faArrowRight
-} from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerChildrenFast, cardReveal } from '../../utils/animations';
 
 const Processus = () => {
   const steps = [
@@ -33,38 +27,70 @@ const Processus = () => {
   ];
 
   return (
-    <section className="py-20 bg-primary-dark">
+    <section className="py-20 bg-primary-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Text Content */}
-          <div className="space-y-6">
-            <h3 className="text-text-light text-paragraph-24 font-semibold">
+          <motion.div 
+            className="space-y-6"
+            variants={staggerChildrenFast}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <motion.h3 
+              variants={fadeInUp}
+              className="text-text-light text-paragraph-24 font-semibold"
+            >
               Processus De Commande
-            </h3>
-            <h2 className="text-2xl md:text-4xl text-text-light leading-tight font-semibold">
+            </motion.h3>
+            
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-2xl md:text-4xl text-text-light leading-tight font-semibold"
+            >
               Un Processus Simple, Rapide Et Entièrement Digitalisé
-            </h2>
+            </motion.h2>
 
-            <p className="text-text-gray-custom text-lg leading-relaxed">
+            <motion.p 
+              variants={fadeInUp}
+              className="text-text-gray-custom text-lg leading-relaxed"
+            >
               Chez Global Leaders Trade, nous avons conçu un parcours d'approvisionnement fluide permettant à nos partenaires de gérer leurs achats en toute simplicité, depuis la demande jusqu'à la livraison.
-            </p>
-            <p className="text-text-gray-custom text-lg leading-relaxed">
+            </motion.p>
+            
+            <motion.p 
+              variants={fadeInUp}
+              className="text-text-gray-custom text-lg leading-relaxed"
+            >
               De l'inscription à la réception des produits, chaque étape a été pensée pour offrir aux partenaires une expérience simple, transparente et efficace, tout en garantissant un contrôle total sur leurs opérations d'approvisionnement.
-            </p>
+            </motion.p>
 
-            <button className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-primary-dark px-9 py-3 rounded-full font-bold transition-all group">
+            <motion.button 
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-primary-dark px-9 py-3 rounded-full font-bold transition-all group"
+            >
               Rejoignez Nous
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* Right Column - Steps Cards in 2x2 Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <motion.div 
+            className="grid grid-cols-2 gap-4"
+            variants={staggerChildrenFast}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {steps.map((step) => (
-              <div 
+              <motion.div 
                 key={step.id}
+                variants={cardReveal}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="bg-card-dark rounded-2xl p-9 flex flex-col items-center justify-center gap-2 hover:bg-card-dark/80 transition-all duration-300 group text-center min-h-[150px]"
               >       
-                {/* Content */}
                 <div>
                   <div className="text-bg-light text-heading-44 font-semibold mb-1">
                     {step.title}
@@ -73,9 +99,9 @@ const Processus = () => {
                     {step.subtitle}
                   </h3>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

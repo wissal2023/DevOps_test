@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { staggerChildrenFast, cardReveal } from '../../utils/animations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faShoppingBag,
@@ -53,45 +55,56 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-20 bg-primary-dark">
+    <section className="py-20 bg-primary-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-6xl mx-auto px-4 sm:px-8">
-          {/* Inline pill-style title */}
+        <motion.div 
+          className="text-center mb-16 max-w-6xl mx-auto px-4 sm:px-8"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           <div className="flex justify-center mb-6">
             <div className="inline-block bg-white text-primary-dark px-6 py-2 rounded-full text-sm font-medium">
               Nos services
             </div>
           </div>
 
-          {/* section name */}
           <h2 className="text-heading-44 font-bold leading-52 text-white capitalize max-w-6xl mx-auto mb-4">
             L'excellence Opérationnelle Au Service De Vos Achats.
           </h2>
 
-        <p className="text-paragraph-24 text-white max-w-5xl mx-auto leading-relaxed">
-          Global Leaders Trade accompagne les enseignes du Groupe Leaders, les
-          distributeurs agréés et les partenaires professionnels à travers une
-          offre complète couvrant l'achat, l'approvisionnement, la gestion des
-          demandes et la logistique.
-        </p>
-        </div>
+          <p className="text-paragraph-24 text-white max-w-5xl mx-auto leading-relaxed">
+            Global Leaders Trade accompagne les enseignes du Groupe Leaders, les
+            distributeurs agréés et les partenaires professionnels à travers une
+            offre complète couvrant l'achat, l'approvisionnement, la gestion des
+            demandes et la logistique.
+          </p>
+        </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {services.map((service) => (
-            <div
+        {/* Services Grid - Staggered Cards */}
+        <motion.div 
+          className="grid md:grid-cols-2 gap-8 mb-12"
+          variants={staggerChildrenFast}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
-              className="bg-card-dark rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group hover:transform hover:-translate-y-1">
+              variants={cardReveal}
+              custom={index}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="bg-card-dark rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group"
+            >
               <div className="flex items-start gap-5">
-                {/* Icon */}
                 <div
                   className={`${service.iconBg} p-4 rounded-2xl ${service.iconColor} transition-all duration-300 ${service.hoverBg} group-hover:text-white`}
                 >
                   {service.icon}
                 </div>
-
-                {/* Content */}
                 <div className="flex-1">
                   <h4 className="text-xl font-bold text-white mb-3">
                     {service.title}
@@ -101,23 +114,32 @@ const Services = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* View All Services Button */}
-        <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="inline-flex items-center gap-3 bg-custom-red hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold transition-all group">
+        <motion.div 
+          className="text-center flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 bg-custom-red hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold transition-all group"
+          >
             Voir Tous Nos Services
             <span className="group-hover:translate-x-1 transition">
               <FontAwesomeIcon icon={faArrowRight} size="sm" />
             </span>
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default Services;
-

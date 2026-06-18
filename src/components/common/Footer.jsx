@@ -1,23 +1,56 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
+  const footerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const columnVariants = {
+    hidden: { opacity: 0, y: 16 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
   return (
-    <footer className="bg-bg-light">
+    <motion.footer 
+      className="bg-bg-light"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
+          variants={footerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           {/* Column 1 - About */}
-          <div>
+          <motion.div variants={columnVariants}>
             <p className="text-gray-custom text-sm leading-relaxed">
               Global Leaders Trade est une société de commerce en gros, filiale du Groupe Leaders, 
               spécialisée dans l'approvisionnement B2B à grande échelle.
             </p>           
-          </div>
+          </motion.div>
 
           {/* Column 2 - Company */}
-          <div>
+          <motion.div variants={columnVariants}>
             <h4 className="text-lg font-semibold text-dark mb-4">Entreprise</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Accueil</a></li>
@@ -26,19 +59,19 @@ const Footer = () => {
               <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Notre catalogue</a></li>
               <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Contact</a></li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 3 - Useful Links */}
-          <div>
+          <motion.div variants={columnVariants}>
             <h4 className="text-lg font-semibold text-dark mb-4">Liens Utiles</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Demande de devis</a></li>
               <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Espace Partenaire</a></li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 4 - Newsletter */}
-          <div>
+          <motion.div variants={columnVariants}>
             <h4 className="text-lg font-semibold text-dark mb-4">
               S'abonner Au Notre Newsletter
             </h4>
@@ -49,33 +82,51 @@ const Footer = () => {
               <input 
                 type="email" 
                 placeholder="Email" 
-                className="flex-1 px-4 py-3 rounded-lg bg-white text-[#757575] placeholder-[#757575] border-0 focus:outline-none focus:ring-0"
+                className="flex-1 px-4 py-3 rounded-lg bg-white text-[#757575] placeholder-[#757575] border-0 focus:outline-none focus:ring-2 focus:ring-custom-red"
               />
-              <button 
+              <motion.button 
                 type="submit" 
                 className="inline-flex items-center gap-2 bg-custom-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition whitespace-nowrap"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 S'abonner
                 <FontAwesomeIcon icon={faArrowRight} size="sm" />
-              </button>
+              </motion.button>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-300 mt-12 pt-4 flex flex-col sm:flex-row justify-between items-center">
+        <motion.div 
+          className="border-t border-gray-300 mt-12 pt-4 flex flex-col sm:flex-row justify-between items-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <p className="text-gray-custom text-sm">© Global Leaders Trade</p>
           <div className="flex gap-4 mt-2 sm:mt-0">
-            <a href="#" className="text-gray-custom hover:text-custom-red transition">
+            <motion.a 
+              href="#" 
+              className="text-gray-custom hover:text-custom-red transition"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <FontAwesomeIcon icon={faLinkedin} size="lg" />
-            </a>
-            <a href="#" className="text-gray-custom hover:text-custom-red transition">
+            </motion.a>
+            <motion.a 
+              href="#" 
+              className="text-gray-custom hover:text-custom-red transition"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <FontAwesomeIcon icon={faFacebook} size="lg" />
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
