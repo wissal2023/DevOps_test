@@ -1,0 +1,35 @@
+
+@import '@fontsource/catamaran/400.css';
+@import '@fontsource/catamaran/500.css';
+@import '@fontsource/catamaran/600.css';
+@import '@fontsource/catamaran/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Catamaran', sans-serif;
+    color: #03163B;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    color: #03163B;
+  }
+
+  * {
+    font-family: inherit;
+  }
+}
+
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: 'Catamaran', sans-serif;
+}
+
