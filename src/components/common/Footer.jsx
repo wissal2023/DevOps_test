@@ -53,11 +53,10 @@ const Footer = () => {
           <motion.div variants={columnVariants}>
             <h4 className="text-lg font-semibold text-dark mb-4">Entreprise</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Accueil</a></li>
-              <li><a href="#" className="text-gray-custom hover:text-custom-red transition">À propos</a></li>
-              <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Nos services</a></li>
-              <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Notre catalogue</a></li>
-              <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Contact</a></li>
+              <li><a href="/" className="text-gray-custom hover:text-custom-red transition">Accueil</a></li>
+              <li><a href="/propos" className="text-gray-custom hover:text-custom-red transition">À propos</a></li>
+              <li><a href="/services" className="text-gray-custom hover:text-custom-red transition">Nos services</a></li>
+              <li><a href="/contact" className="text-gray-custom hover:text-custom-red transition">Contact</a></li>
             </ul>
           </motion.div>
 
@@ -65,8 +64,8 @@ const Footer = () => {
           <motion.div variants={columnVariants}>
             <h4 className="text-lg font-semibold text-dark mb-4">Liens Utiles</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Demande de devis</a></li>
-              <li><a href="#" className="text-gray-custom hover:text-custom-red transition">Espace Partenaire</a></li>
+              <li><a href="/devis" className="text-gray-custom hover:text-custom-red transition">Demande de devis</a></li>
+              <li><a href="/partenaires" className="text-gray-custom hover:text-custom-red transition">Espace Partenaire</a></li>
             </ul>
           </motion.div>
 
@@ -86,7 +85,7 @@ const Footer = () => {
               />
               <motion.button 
                 type="submit" 
-                className="inline-flex items-center gap-2 bg-custom-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-custom-red hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition whitespace-nowrap"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -108,7 +107,7 @@ const Footer = () => {
           <p className="text-gray-custom text-sm">© Global Leaders Trade</p>
           <div className="flex gap-4 mt-2 sm:mt-0">
             <motion.a 
-              href="#" 
+              href="https://www.linkedin.com/company/global-leaders-trade" 
               className="text-gray-custom hover:text-custom-red transition"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -116,7 +115,7 @@ const Footer = () => {
               <FontAwesomeIcon icon={faLinkedin} size="lg" />
             </motion.a>
             <motion.a 
-              href="#" 
+              href="https://www.facebook.com/GlobalLeadersTrade" 
               className="text-gray-custom hover:text-custom-red transition"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

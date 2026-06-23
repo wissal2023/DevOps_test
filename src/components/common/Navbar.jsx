@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import logo_black from '../../assets/img/logo_black.png'; 
+import logo from '../../assets/img/logo.png'; 
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,24 +24,15 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo when scrolled changes to logo.png */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-custom-red rounded-lg flex items-center justify-center text-white font-bold text-xl">
-            GL
-          </div>
-          <div>
-            <div className={`font-bold text-lg tracking-tight transition-colors ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            }`}>
-              Global Leaders Trade
-            </div>
-            <div className={`text-[10px] -mt-1 transition-colors ${
-              isScrolled ? 'text-gray-500' : 'text-white/70'
-            }`}>
-              GROUPE LEADERS
-            </div>
-          </div>
+          <img
+            src={isScrolled ? logo : logo_black}
+            alt="Global Leaders Trade Logo"
+            className="h-10 w-auto"
+          />
         </div>
+
 
         {/* Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -77,10 +70,11 @@ const Navbar = () => {
           </a>
         </div>
 
-         {/* Buttons */}
+         {/* Buttons: changed color from red to 'custom-red': '#e3af4b', change the hover color */}
         <div className="flex items-center gap-3">
+
           <button
-            className={`px-7 py-2.5 bg-custom-red hover:bg-red-700 text-white rounded-full font-semibold transition text-sm ${
+            className={`px-7 py-2.5 bg-custom-red hover:bg-yellow-600 text-white rounded-full font-semibold transition text-sm ${
               isScrolled
                 ? 'border-white/30 hover:bg-white/10 text-white'
                 : 'border-white/30 hover:bg-white/10 text-white'

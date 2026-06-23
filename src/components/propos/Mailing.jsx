@@ -53,7 +53,7 @@ const Mailing = () => {
             </div>
             <motion.button 
               type="submit" 
-              className="inline-flex items-center justify-center gap-2 bg-custom-red hover:bg-red-700 text-white px-10 py-4 rounded-full font-semibold transition whitespace-nowrap text-base"
+              className="inline-flex items-center justify-center gap-2 bg-custom-red bg-yellow-600 text-white px-10 py-4 rounded-full font-semibold transition whitespace-nowrap text-base"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

@@ -59,7 +59,7 @@ const Hero = () => {
             variants={fadeInUp}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-custom-red hover:bg-red-700 rounded-full text-lg font-semibold transition shadow-md hover:shadow-lg"
+            className="px-10 py-4 bg-custom-red bg-yellow-600 rounded-full text-lg font-semibold transition shadow-md hover:shadow-lg"
           >
             Demander Un Devis
           </motion.button>

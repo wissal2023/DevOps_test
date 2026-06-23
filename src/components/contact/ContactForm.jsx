@@ -293,7 +293,7 @@ const ContactForm = () => {
               {/* Submit Button */}
               <motion.button 
                 type="submit" 
-                className="inline-flex items-center gap-3 bg-custom-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all group self-start"
+                className="inline-flex items-center gap-3 bg-custom-red bg-yellow-600 text-white px-8 py-4 rounded-full font-semibold transition-all group self-start"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 30px rgba(241, 63, 63, 0.4)",

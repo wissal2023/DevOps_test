@@ -59,7 +59,7 @@ const Action = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-custom-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all group text-lg whitespace-nowrap"
+              className="inline-flex items-center gap-3 bg-custom-red bg-yellow-600 text-white px-8 py-4 rounded-full font-semibold transition-all group text-lg whitespace-nowrap"
             >
               Demander Un Devis
               <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-1 transition" />

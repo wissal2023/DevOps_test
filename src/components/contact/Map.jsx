@@ -72,7 +72,7 @@ const Map = () => {
                   En face de clinique Hannibal<br />
                   Tunis, Tunisie
                 </p>
-                <button className="mt-2 bg-custom-red text-white px-4 py-1 rounded-full text-sm hover:bg-red-700 transition">
+                <button className="mt-2 bg-custom-red text-white px-4 py-1 rounded-full text-sm transition">
                   Itinéraire
                 </button>
               </div>

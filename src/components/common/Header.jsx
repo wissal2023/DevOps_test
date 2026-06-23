@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import logo from '../../assets/img/logo.png'; 
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,17 +25,12 @@ const Header = () => {
   <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     {/* Logo */}
     <div className="flex items-center gap-3">
-      <div className="w-10 h-10 bg-custom-red rounded-lg flex items-center justify-center text-white font-bold text-xl">
-        GL
-      </div>
-      <div>
-        <div className="font-bold text-lg tracking-tight text-gray-900">
-          Global Leaders Trade
-        </div>
-        <div className="text-[10px] -mt-1 text-gray-500">
-          GROUPE LEADERS
-        </div>
-      </div>
+      <img
+        src={logo}
+        alt="Global Leaders Trade Logo"
+        className="h-10 w-auto"
+      />
+      
     </div>
 
     {/* Menu */}
@@ -67,7 +63,7 @@ const Header = () => {
 
     {/* Buttons */}
     <div className="flex items-center gap-3">
-      <button className="bg-custom-red hover:bg-red-700 text-white px-7 py-2.5 rounded-full font-semibold transition text-sm shadow-md hover:shadow-lg">
+      <button className="bg-custom-red hover:bg-yellow-600 text-white px-7 py-2.5 rounded-full font-semibold transition text-sm shadow-md hover:shadow-lg">
         Espace Client
       </button>
       <button className="px-6 py-2.5 text-sm font-medium border-2 border-custom-red text-custom-red rounded-full transition-all duration-300 hover:bg-custom-red hover:text-white hover:shadow-lg transform hover:scale-105">

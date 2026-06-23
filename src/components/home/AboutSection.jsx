@@ -71,7 +71,7 @@ const AboutSection = () => {
             variants={buttonReveal}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-6 flex items-center gap-3 bg-custom-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all group"
+            className="mt-6 flex items-center gap-3 bg-custom-red bg-yellow-600 text-white px-8 py-4 rounded-full font-semibold transition-all group"
           >
             À Propos De Nous
             <FontAwesomeIcon icon={faArrowRight} size="sm" />
