@@ -34,7 +34,7 @@ jobs:
         run: npx vitest run --coverage
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
+        uses: SonarSource/sonarcloud-github-action@6111eec7062e2dc5a3eda441b13f7d1a2816d1fd
         env:
           SONAR_TOKEN: ${{ secrets.SONARACCESSTOKEN }}
         with:
