@@ -2,7 +2,7 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![CI](https://github.com/wissal2023/DevOps_test/actions/workflows/frontend-ci.yml/badge.svg)
+![CI](https://github.com/wissal2023/DevOps_test/actions/workflows/trade-ci.yml/badge.svg)
 
 Currently, two official plugins are available:
 

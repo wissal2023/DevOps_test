@@ -6,11 +6,12 @@ import Mailing from '../propos/Mailing';
 import Footer from './Footer';
 
 const Layout = ({ 
-  children, 
+  children,
   showBreadcrumb = false, 
   breadcrumbTitle = "À Propos De Nous",
   breadcrumbText = "À Propos de nous"
 }) => {
+
   return (
     <motion.div 
       className="min-h-screen bg-white"

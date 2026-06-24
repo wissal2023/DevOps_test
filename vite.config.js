@@ -7,12 +7,12 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
   },
-   test: {
-  globals: true,
-  environment: "jsdom",
-  setupFiles: "./src/tests/setup.js",
-  coverage: {
-    reporter: ['text', 'html']
-  }
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/tests/setup.js",
+    coverage: {
+      reporter: ['text', 'lcov']
+    }
 }
 })
