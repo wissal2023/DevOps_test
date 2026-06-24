@@ -1,3 +1,4 @@
+# .github\workflows\trade-ci.yml
 name: Trade Frontend CI
 
 on:
@@ -10,7 +11,7 @@ on:
       - main
 
 jobs:
-  lint-and-build:
+  lint-test-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +29,9 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
+
+      - name: Run Tests with Coverage (Vitest)
+        run: npx vitest run --coverage
 
       - name: Build Project
         run: npm run build
