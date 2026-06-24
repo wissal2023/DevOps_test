@@ -41,7 +41,8 @@ jobs:
             -Dsonar.projectKey=wissal2023_DevOps_test \
             -Dsonar.sources=src \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONARACCESSTOKEN }}
+            -Dsonar.login=${{ secrets.SONARACCESSTOKEN }} \
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
 
       - name: Build Project
         run: npm run build
