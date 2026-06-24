@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeInUp, fadeInDown, staggerChildren, imageReveal } from '../../utils/animations';
+import { fadeInUp, fadeInDown, staggerChildren } from '../../utils/animations';
 import hero from '../../assets/img/Hero.png';
 
 const Hero = () => {

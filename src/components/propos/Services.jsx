@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerChildrenFast, cardReveal } from '../../utils/animations';
+import { staggerChildrenFast, cardReveal } from '../../utils/animations';
 
 const Services = () => {
   const services = [

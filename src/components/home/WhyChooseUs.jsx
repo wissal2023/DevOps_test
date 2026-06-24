@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { glassPop, fadeInLeft, fadeInRight, staggerChildren, buttonReveal } from '../../utils/animations';
+import { glassPop, fadeInLeft, staggerChildren, buttonReveal } from '../../utils/animations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import whyChooseImage from '../../assets/img/about1-image.png';
