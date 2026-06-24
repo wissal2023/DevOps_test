@@ -34,14 +34,14 @@ jobs:
         run: npx vitest run --coverage
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v4.1.0
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARACCESSTOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=wissal2023
-            -Dsonar.projectKey=wissal2023_DevOps_test
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+        run: |
+          npm install -g sonar-scanner
+          sonar-scanner \
+            -Dsonar.organization=wissal2023 \
+            -Dsonar.projectKey=wissal2023_DevOps_test \
+            -Dsonar.sources=src \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONARACCESSTOKEN }}
 
       - name: Build Project
         run: npm run build
