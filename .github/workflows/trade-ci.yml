@@ -34,17 +34,14 @@ jobs:
         run: npx vitest run --coverage
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
         with:
           args: >
             -Dsonar.organization=wissal2023
             -Dsonar.projectKey=wissal2023_DevOps_test
-            -Dsonar.sources=src
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-            -Dsonar.test.inclusions=**/*.test.js,**/*.spec.js,**/*.test.jsx,**/*.spec.jsx
 
       - name: Build Project
         run: npm run build
