@@ -9,6 +9,8 @@ const AppNavigation = () => {
   return (
     <Routes>       
         <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="*" element={<Navigate to="/home" replace />} />
+        
         <Route path="/home" element={<HomePage />} />    
         <Route path="/propos" element={<Propos />} /> 
         <Route path="/services" element={<Services />} />

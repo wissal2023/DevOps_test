@@ -1,3 +1,4 @@
+// src\App.jsx
 import { ToastContainer } from "react-toastify";
 import AppNavigation from "./navigation";
 import 'react-toastify/dist/ReactToastify.css';
