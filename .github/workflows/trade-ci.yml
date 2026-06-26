@@ -45,6 +45,17 @@ jobs:
 
       - name: Build Project
         run: npm run build
+        
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Docker Image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/trade-frontend:latest .
+
+      - name: Push Docker Image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/trade-frontend:latest      
+      - name: Build Project
+        run: npm run build
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
